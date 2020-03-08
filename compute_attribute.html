@@ -1,0 +1,42 @@
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Compute attribute</title>
+  </head>
+  <body>
+    <div id="example">
+      <p>First name: <input type="text" v-model:value="firstName" placeholder="First name" />
+      <p>Last name: <input type="text" v-model:value="lastName" placeholder="Last Name" />
+      <p>Full name: <input type="text" v-model:value="fullName"  /> 
+        
+    </div>
+    <script>
+      var vm = new Vue({
+        el: '#example',
+        data: {
+          firstName: "",
+          lastName: "",
+        },
+        computed: {
+          // 计算属性的 getter
+          fullName: {
+            get: function() {
+              return this.firstName + ' ' + this.lastName
+            }/*,
+            set: function(newValue) {
+              var names = newValue.split(' ');
+              this.firstName = names[0];
+              this.lastName  = names[names.length - 1];
+            }
+            */
+          }
+        }
+      })
+    </script>
+  </body>
+
+</html>
+
